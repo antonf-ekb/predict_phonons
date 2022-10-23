@@ -13,7 +13,7 @@ os_feat = OxidationStates()
 
 to_predict=pd.DataFrame(columns=["compound","nat_form","nelem"])
 
-def make_descriptor_single(df,cmpd,):
+def make_descriptor_single(df,cmpd):
     next_num=df.shape[0]
     data=pd.DataFrame(columns=["compound","nat_form","nelem"])
     data.loc[next_num,"compound"]=cmpd
@@ -27,4 +27,4 @@ def make_descriptor_single(df,cmpd,):
     return df
   
 to_predict=make_descriptor_single(to_predict,"Mn2CoCrP2")
-to_predict
+st.write(to_predict)
