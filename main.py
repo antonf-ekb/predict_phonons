@@ -13,18 +13,14 @@ os_feat = OxidationStates()
 
 to_predict=pd.DataFrame(columns=["compound","nat_form","nelem"])
 
-def make_descriptor_single(df,cmpd):
-    next_num=df.shape[0]
-    data=pd.DataFrame(columns=["compound","nat_form","nelem"])
-    data.loc[next_num,"compound"]=cmpd
-    data= StrToComposition().featurize_dataframe(data, "compound")
-    data = ep_feat.featurize_dataframe(data, col_id="composition")
-    data = CompositionToOxidComposition().featurize_dataframe(data, "composition")
-    data = os_feat.featurize_dataframe(data, "composition_oxid")
-    data.loc[next_num,"nelem"]=len(data["composition"][0].as_dict().keys())
-    data.loc[next_num,"nat_form"]=sum(data["composition"][0].as_dict().values())
-    df=pd.concat([df,data],axis=0)
-    return df
-  
-to_predict=make_descriptor_single(to_predict,"Mn2CoCrP2")
+cmpd="Mn2CoCrP2"
+
+to_predict.loc[0,"compound"]=cmpd
+to_predict= StrToComposition().featurize_dataframe(to_predict, "compound")
+to_predict = ep_feat.featurize_dataframe(to_predict, col_id="composition")
+to_predict = CompositionToOxidComposition().featurize_dataframe(to_predict, "composition")
+to_predict= os_feat.featurize_dataframe(to_predict, "composition_oxid")
+to_predict.loc[0,"nelem"]=len(to_predict["composition"][0].as_dict().keys())
+to_predict.loc[0,"nat_form"]=sum(to_predict["composition"][0].as_dict().values())
+
 st.write("go to hell")
