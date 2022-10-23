@@ -23,4 +23,4 @@ to_predict= os_feat.featurize_dataframe(to_predict, "composition_oxid")
 to_predict.loc[0,"nelem"]=len(to_predict["composition"][0].as_dict().keys())
 to_predict.loc[0,"nat_form"]=sum(to_predict["composition"][0].as_dict().values())
 
-to_predict
+st.write(to_predict)
