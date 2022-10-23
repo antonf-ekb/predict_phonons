@@ -27,4 +27,4 @@ def make_descriptor_single(df,cmpd):
     return df
   
 to_predict=make_descriptor_single(to_predict,"Mn2CoCrP2")
-st.write(to_predict)
+st.write("go to hell")
