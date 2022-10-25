@@ -32,4 +32,4 @@ def predict(df):
     X_to_predict=scaler.transform(to_predict.drop(['composition','composition_oxid'], axis=1).set_index('compound').values)
     return np.exp(model_kappa.predict(X_to_predict))
 
-st.write(to_predict.loc[0,"nat_form"])
+st.write(predict(to_predict))
