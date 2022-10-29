@@ -18,7 +18,7 @@ os_feat = OxidationStates()
 
 to_predict=pd.DataFrame(columns=["compound","nat_form","nelem"])
 
-cmpd="Mnn2CoCrP2"
+cmpd="Mn2CoCrP2"
 
 try:
     to_predict.loc[0,"compound"]=cmpd
@@ -31,7 +31,7 @@ try:
     X_to_predict=scaler.transform(to_predict.drop(['composition','composition_oxid'], axis=1).set_index('compound').values)
     st.write(np.exp(model_kappa.predict(X_to_predict))[0])
 except:
-    st.write("Проверьте правильность ввода формулы")
+    st.write("Проверьте правильность ввода формулы!")
 
 def predict(df):
     X_to_predict=scaler.transform(to_predict.drop(['composition','composition_oxid'], axis=1).set_index('compound').values)
