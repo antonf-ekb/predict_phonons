@@ -18,7 +18,7 @@ os_feat = OxidationStates()
 
 to_predict=pd.DataFrame(columns=["compound","nat_form","nelem"])
 
-cmpd="Mn2CoCrP2"
+cmpd="Mnn2CoCrP2"
 
 try:
     to_predict.loc[0,"compound"]=cmpd
