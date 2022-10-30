@@ -34,7 +34,7 @@ try:
     to_predict.loc[0,"nat_form"]=sum(to_predict["composition"][0].as_dict().values())
     X_to_predict=scaler.transform(to_predict.drop(['composition','composition_oxid'], axis=1).set_index('compound').values)
     #make prediction
-    st.write(np.exp(model_kappa.predict(X_to_predict))[0])
+    st.write("Решеточная теплопрвродность: "+np.exp(model_kappa.predict(X_to_predict))[0])
     st.write(model_bulk.predict(X_to_predict)[0])
     st.write(model_shear.predict(X_to_predict)[0])
 except:
