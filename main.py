@@ -35,8 +35,8 @@ try:
     X_to_predict=scaler.transform(to_predict.drop(['composition','composition_oxid'], axis=1).set_index('compound').values)
     #make prediction
     st.write(np.exp(model_kappa.predict(X_to_predict))[0])
-    st.write(model_bulk.predict(X_to_predict))[0])
-    st.write(model_shear.predict(X_to_predict))[0])
+    st.write(model_bulk.predict(X_to_predict)[0])
+    st.write(model_shear.predict(X_to_predict)[0])
 except:
     st.write("Проверьте правильность ввода формулы!")
 
