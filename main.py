@@ -28,8 +28,8 @@ os_feat = OxidationStates()
 
 # Настройка боковой панели
 st.sidebar.title("About")
-img = Image.open("picture.png")
-st.sidebar.image(img, width=200)
+#img = Image.open("picture.png")
+#st.sidebar.image(img, width=200)
 
 
 # cmpd="Mn2CoCrP2"
