@@ -2,6 +2,8 @@ import streamlit as st
 import pickle
 import numpy as np
 import pandas as pd
+import time
+from PIL import Image
 
 from matminer.featurizers.conversions import StrToComposition
 from matminer.featurizers.composition import ElementProperty
@@ -21,10 +23,19 @@ with open("dump/model_shear", 'rb') as file:
 ep_feat = ElementProperty.from_preset(preset_name="magpie")
 os_feat = OxidationStates()
 
-st.header("Предсказание теплопроводности и упругих модулей кристаллических материалов")
+
+# import Image from pillow to open images
+
+# Настройка боковой панели
+st.sidebar.title("About")
+img = Image.open("picture.png")
+st.sidebar.image(img, width=200)
+
 
 # cmpd="Mn2CoCrP2"
-cmpd = st.text_input("Введите химическую формулу соединения:")
+st.title("Предсказание теплопроводности и упругих модулей кристаллических материалов")
+st.subheader("")
+cmpd = st.text_input("Введите химическую формулу соединения:",help="Введите без пробелов",placeholder="Mn2CoCrP2" )
 
 if (st.button("Предсказать")):
     #make descriptor from the compound formula
