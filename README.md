@@ -1,1 +1,1 @@
-# predict_phonons
+# predict properties
