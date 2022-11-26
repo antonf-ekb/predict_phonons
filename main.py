@@ -45,7 +45,7 @@ def main():
     # Настройка боковой панели
     st.sidebar.title("О приложении")
 
-    img = Image.open("/picture.png")
+    img = Image.open("picture.png")
     st.sidebar.image(img, width = 180)
     st.sidebar.write('На основе данных о свойствах элементов, входящих в состав соединения, таких как как:'
                      ' положение элемента в Периодической системе Менделеева, \
