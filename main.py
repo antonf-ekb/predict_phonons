@@ -21,6 +21,7 @@ def calculate_values(cmpd):
 
     ep_feat = ElementProperty.from_preset(preset_name="magpie")
     os_feat = OxidationStates()
+
     #make descriptor from the compound formula
     to_predict = pd.DataFrame(columns=["compound","nat_form","nelem"])
     try:
@@ -32,6 +33,7 @@ def calculate_values(cmpd):
         to_predict.loc[0,"nelem"] = len(to_predict["composition"][0].as_dict().keys())
         to_predict.loc[0,"nat_form"] = sum(to_predict["composition"][0].as_dict().values())
         X_to_predict = scaler.transform(to_predict.drop(['composition','composition_oxid'], axis=1).set_index('compound').values)
+
         #make prediction
         conductivity = round(np.exp(model_kappa.predict(X_to_predict))[0],2)
         compression_modulest = round(model_bulk.predict(X_to_predict)[0])
@@ -42,8 +44,8 @@ def calculate_values(cmpd):
 
 
 def main():
-    # Настройка боковой панели
-    st.sidebar.title("О приложении")
+    # description of the sidebar
+    st.sidebar.title("Как это работает")
 
     img = Image.open("picture.png")
     st.sidebar.image(img, width = 180)
@@ -59,8 +61,7 @@ def main():
                        дескриптор для задаваемого вами состава, что позволяет предсказать его свойства с помощью \
                        обученных моделей.  ')
 
-
-    # cmpd="Mn2CoCrP2"
+    # description of the main unit
     st.title("Предсказание теплопроводности и упругих модулей кристаллических материалов")
     st.subheader("")
     cmpd = st.text_input("Введите химическую формулу соединения:",help="Введите формулу без пробелов",placeholder="Mn2CoCrP2" )
