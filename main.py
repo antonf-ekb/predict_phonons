@@ -17,7 +17,7 @@ def get_models():
         model_kappa = pickle.load(file)
     with open("dump/model_bulk", 'rb') as file:
         model_bulk = pickle.load(file)
-    with open("E:/Git/predict_properties/dump/model_shear", 'rb') as file:
+    with open("dump/model_shear", 'rb') as file:
         model_shear = pickle.load(file)
     models = [scaler, model_kappa, model_bulk, model_shear]
     return models
