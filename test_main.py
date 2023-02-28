@@ -7,4 +7,8 @@ def test_calculate_values():
 
 
 def test_calculate_values_bad():
-    assert calculate_values("e", get_models()) == [0]
+    assert calculate_values("M", get_models()) == [0]
+
+
+def test_calculate_values_empty():
+    assert calculate_values("", get_models()) == [0]
