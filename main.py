@@ -49,10 +49,10 @@ def calculate_values(cmpd, models):
                                  .set_index('compound').values)
 
         # make prediction
-        conductivity = round(np.exp(models[1].predict(X_to_predict))[0], 2)
-        compression_modulest = round(models[2].predict(X_to_predict)[0])
-        shift_modulus = round(models[3].predict(X_to_predict)[0])
-        return [conductivity, compression_modulest, shift_modulus]
+        thermal_conductivity = round(np.exp(models[1].predict(X_to_predict))[0], 2)
+        bulk_modulus = round(models[2].predict(X_to_predict)[0])
+        shear_modulus = round(models[3].predict(X_to_predict)[0])
+        return [thermal_conductivity, bulk_modulus, shear_modulus]
     except ValueError:
         return [0]
 
